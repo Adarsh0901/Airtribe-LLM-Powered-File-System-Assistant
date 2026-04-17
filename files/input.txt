@@ -1,1 +1,0 @@
-Hello Adarsh this is a exaple of file reading

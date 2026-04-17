@@ -1,0 +1,52 @@
+**Summary of Adarsh Shukla's Resume**
+
+**Personal Information:**
+- Name: Adarsh Shukla
+- Location: Mumbai, Maharashtra, IN
+- Contact: 9975247013
+- Email: adarshashwinshukla@gmail.com
+- LinkedIn: adarsh-shukla-6537a31b4
+- GitHub: Adarsh0901
+
+**Profile:**
+Adarsh is a skilled engineer specializing in building dynamic and scalable web and mobile applications with expertise in Angular, ReactJs, Ionic, and NodeJs.
+
+**Education:**
+- Bachelor of Engineering in Computer Science
+  - Institution: K.K. Wagh Institute of Engineering Education & Research
+  - Duration: Aug 2018 - Jun 2022
+  - CGPA: 8.18
+  - Achievements: Passed with Distinction
+
+**Work Experience:**
+1. Remiges Technologies Pvt Ltd
+   - Role: Application Engineer
+   - Duration: Jun 2022 - Present
+   - Responsibilities: Full stack MEAN development focusing on robust and user-friendly applications.
+   - Technical Skills: HTML, CSS, JavaScript, Angular, Ionic, ReactJs, Flutter, Ubuntu Linux, Git, NodeJs, PostgreSQL.
+   - Soft Skills: Teamwork, Time Management.
+
+2. Insnapsys (Internship)
+   - Role: Software Developer Intern
+   - Duration: Oct 2021 - Nov 2021
+   - Responsibilities: Developed a web application using MERN stack.
+   - Technical Skills: HTML, CSS, JavaScript, ReactJs, NodeJs, MongoDb, Git.
+   - Soft Skills: Teamwork.
+
+**Achievements:**
+- Developed E‑Voting system for NSDL reducing voting time by 40%.
+- Accelerated app development for Actyv by 15% and published on Apple Store.
+
+**Major Projects:**
+- **MCX CCL**: Developing and maintaining a web application using Angular.
+- **Gates Connect**: Developing web and mobile apps using Angular and Ionic.
+- **TNT (Tools and Technology)**: Designing and developing six open-source products as a Frontend Engineer.
+- **E-Voting for NSDL**: Developed a tablet e-voting app using Angular and Ionic.
+- **Actyv**: Developed and published two apps on Apple Store using ReactJS and Ionic.
+- **Developer Connect Platform**: Developed a web application for developer collaboration using ReactJs, NodeJs, and MongoDB.
+- **E-commerce Website**: Developed a full-stack eCommerce application using Reactjs, Nodejs, Express, and MongoDB.
+
+**Technical Skills:**
+- Languages: HTML, CSS, JavaScript, TypeScript
+- Frameworks & Tools: Angular, Ionic, ReactJs, NodeJs, ExpressJs, Docker
+- Databases: MySQL, PostgreSQL, MongoDB

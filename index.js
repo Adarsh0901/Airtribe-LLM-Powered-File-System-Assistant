@@ -1,18 +1,23 @@
-const tools = require('./fs_tools');
+require("dotenv/config");
+const { run_assistant } = require('./llm_file_assistant');
 
 async function main() {
     try {
-        // const data = await tools.readFile('./files/Keshav_Resume.pdf');
-        // console.log('File content:', data);
-
-        // const files = await tools.listFiles('./files');
-        // console.log('Files in directory:', files);
-
-        // const response = await tools.writeFile('./adarsh/output.txt', "Hello, this is a test.");
-        // console.log(response);
-
-        // const searchResult = await tools.searchInFile('./files/Keshav_Resume.docx', 'sc');
-        // console.log('Search results:', searchResult);
+        let promts = [
+            "Read all resumes in the resumes folder.",
+            "Find resumes mentioning Python experience.",
+            "Search for the keyword 'JavaScript' in Adarsh_Shukla_Resume.pdf and return the matching lines.",
+            "Create a summary file for Adarsh_Shukla_Resume.pdf in resumes directory."
+        ];
+        
+        for (const prompt of promts) {
+            console.log(`\nUser Prompt: ${prompt}`);
+            const response = await run_assistant({
+                userPrompt: prompt,
+                verbose: true
+            });
+            console.log(`Assistant Response: ${response}`);
+        }
     } catch (error) {
         console.error('Error:', error);
     }

@@ -9,7 +9,7 @@ const mammoth = require('mammoth');
  * @param {string} filepath - Path to the file.
  * @returns {Promise<Object>} - An object containing success status, content, and metadata or error message.
  */
-async function read_file(filepath) {
+async function read_file({filepath}) {
     try {
         const extension = path.extname(filepath).toLowerCase();
         const fileBuffer = await fs.readFile(filepath);
@@ -36,7 +36,7 @@ async function read_file(filepath) {
                 throw new Error(`Unsupported file extension: ${extension}`);
         }
 
-        return {
+        return JSON.stringify({
             success: true,
             content: content,
             metadata: {
@@ -45,14 +45,14 @@ async function read_file(filepath) {
                 extension: extension,
                 lastModified: stats.mtime
             }
-        };
+        });
 
     } catch (error) {
-        return {
+        return JSON.stringify({
             success: false,
             content: null,
             error: error.message
-        };
+        });
     }
 }
 
@@ -62,23 +62,23 @@ async function read_file(filepath) {
  * @param {string|null} extension - Optional file extension filter (e.g., '.pdf')
  * @returns {Promise<Object>}
  */
-async function list_files(directory, extension = null) {
+async function list_files({directory, extension = null}) {
     try {
         const files = await fs.readdir(directory);
         const filteredFiles = extension
             ? files.filter(file => path.extname(file).toLowerCase() === extension)
             : files;
 
-        return {
+        return JSON.stringify({
             success: true,
             files: filteredFiles
-        };
+        });
     } catch (error) {
-        return {
+        return JSON.stringify({
             success: false,
             files: [],
             error: error.message
-        };
+        });
     }
 }
 
@@ -89,7 +89,6 @@ async function list_files(directory, extension = null) {
 async function check_file(filePath) {
   try {
     await fs.access(filePath, fs.constants.F_OK);
-    console.log('File exists!');
   } catch {
     const dir = path.dirname(filePath);
     await fs.mkdir(dir, { recursive: true });
@@ -102,7 +101,7 @@ async function check_file(filePath) {
  * @param {string} data - The content to write to the file.
  * @returns {Promise<Object>}
  */
-async function write_file(filepath, data) {
+async function write_file({filepath, data}) {
     try {
         if(!filepath || !data) {
             throw new Error('Filepath and data are required');
@@ -111,15 +110,15 @@ async function write_file(filepath, data) {
        await check_file(filepath)
 
         await fs.appendFile(filepath, data, 'utf8');
-        return {
+        return JSON.stringify({
             success: true,
             message: `Data written to ${filepath}`
-        };
+        });
     } catch (error) {
-        return {
+        return JSON.stringify({
             success: false,
             error: error.message
-        };
+        });
     }
 }
 
@@ -129,10 +128,10 @@ async function write_file(filepath, data) {
  * @param {string} keyword - The term to search for.
  * @returns {Object} - An object containing an array of matches or an error.
  */
-async function search_in_file(filepath, keyword) {
+async function search_in_file({filepath, keyword}) {
     try {
         // Read file content synchronously (use fs.readFile for async)
-        const content = (await read_file(filepath)).content;
+        const content = (await read_file({filepath})).content;
         const lines = content.split(/\r?\n/);
         const matches = [];
 
@@ -148,20 +147,22 @@ async function search_in_file(filepath, keyword) {
             }
         });
 
-        return {
+        return JSON.stringify({
             keyword: keyword,
             count: matches.length,
             results: matches
-        };
+        });
 
     } catch (error) {
-        return { error: `Could not read file: ${error.message}` };
+        return JSON.stringify({
+            error: `Could not read file: ${error.message}`
+        });
     }
 }
 
 module.exports = {
-    readFile: read_file,
-    listFiles: list_files,
-    writeFile: write_file,
-    searchInFile: search_in_file
+    read_file: read_file,
+    list_files: list_files,
+    write_file: write_file,
+    search_in_file: search_in_file
 };
