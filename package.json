@@ -1,0 +1,30 @@
+{
+  "name": "airtribe-llm-powered-file-system-assistant",
+  "version": "1.0.0",
+  "description": "LLM base read, write operation using tool calling",
+  "keywords": [
+    "LLM",
+    "tool",
+    "file",
+    "system"
+  ],
+  "homepage": "https://github.com/Adarsh0901/Airtribe-LLM-Powered-File-System-Assistant#readme",
+  "bugs": {
+    "url": "https://github.com/Adarsh0901/Airtribe-LLM-Powered-File-System-Assistant/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adarsh0901/Airtribe-LLM-Powered-File-System-Assistant.git"
+  },
+  "license": "ISC",
+  "author": "Adarsh Shukla",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mammoth": "^1.12.0",
+    "pdf-parse": "^2.4.5"
+  }
+}

@@ -1,0 +1,2 @@
+mammoth:  ^1.12.0  // docx file reader
+pdf-parse :  ^2.4.5 // pdf file reader
